@@ -1,21 +1,10 @@
-﻿string[] fishArray = {"goldfish", "pufferfish", "clownfish", "bass", "flounder", "salmon"};
+﻿// yes this is one of my previous deliverables with the logic moved into a class file, im running out of ideas and this fits the bill.
+
+using System;
+using fish_search;
 
 Console.Write("Fish search: ");
-string searchTerm = Console.ReadLine();
-Console.WriteLine( SearchForFish(searchTerm) );
+string? searchTerm = Console.ReadLine();
+string searchReturnValue = FishList.Search(searchTerm);
 
-string SearchForFish(string searchTerm)
-{
-    foreach (string fish in fishArray)
-    {
-        string lowerFish = fish.ToLower();
-        string lowerSearchTerm = searchTerm.ToLower();
-
-        if (lowerFish.Contains(lowerSearchTerm))
-        {
-            return $"Found fish: {fish}";
-        }
-    }
-
-    return $"Did not find fish matching \"{searchTerm}\"";
-}
+Console.WriteLine(searchReturnValue);
